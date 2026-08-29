@@ -1,0 +1,10 @@
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 8px;
+}
+
+.filtros input[type="search"] {
+  flex: 1 1 240px;
+}

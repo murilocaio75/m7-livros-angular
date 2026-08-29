@@ -1,23 +1,32 @@
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { TestBed } from "@angular/core/testing";
+import { provideRouter } from "@angular/router";
+import { App } from "./app";
 
-describe('App', () => {
+// Sem `import { describe, it, expect } from "vitest"`: o builder
+// @angular/build:unit-test configura globals, e o tsconfig.spec.json declara
+// "types": ["vitest/globals"]. Na Aula 06 o import era obrigatório.
+describe("App", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
+      // O RouterOutlet do template precisa de um router configurado; sem isto
+      // a criação do componente falha por falta de ActivatedRoute.
+      providers: [provideRouter([])]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it("deve criar a aplicação", () => {
     const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it("deve renderizar o router-outlet", async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, m7-livros-angular');
+
+    const elemento = fixture.nativeElement as HTMLElement;
+
+    expect(elemento.querySelector("router-outlet")).toBeTruthy();
   });
 });

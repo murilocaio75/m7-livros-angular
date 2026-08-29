@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --tinta: #1c1f23;
+  --suave: #5f6b76;
+  --linha: #dde3e9;
+  --fundo: #f6f8fa;
+  --destaque: #0b5c8a;
+  --perigo: #a32020;
+  --ok: #1f7a4d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--linha);
+  background: #fff;
+  color: var(--tinta);
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--destaque);
+  color: var(--destaque);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.perigo:hover:not(:disabled) {
+  border-color: var(--perigo);
+  color: var(--perigo);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 6px 9px;
+  border: 1px solid var(--linha);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--tinta);
+}
+
+a {
+  color: var(--destaque);
+}
+
+.aviso {
+  color: var(--suave);
+}
+
+/* Usada pela lista quando a API falha. A seção 10 do enunciado exige que essa
+   situação seja visível para quem usa, não só no console. */
+.erro {
+  color: var(--perigo);
+  background: #fdf2f2;
+  border: 1px solid #f0c9c9;
+  border-radius: 6px;
+  padding: 10px 12px;
+}

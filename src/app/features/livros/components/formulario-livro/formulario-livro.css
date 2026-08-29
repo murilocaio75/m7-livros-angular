@@ -1,0 +1,32 @@
+.formulario-livro {
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-top: 3px solid var(--destaque);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  display: grid;
+  gap: 10px;
+}
+
+.formulario-livro h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.formulario-livro label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--suave);
+}
+
+.formulario-livro button {
+  justify-self: start;
+}
+
+.erro-campo {
+  margin: -4px 0 0;
+  color: var(--perigo);
+  font-size: 0.85rem;
+}

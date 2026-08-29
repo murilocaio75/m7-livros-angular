@@ -1,0 +1,37 @@
+.detalhe {
+  max-width: 700px;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.detalhe dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 18px;
+  margin: 16px 0 24px;
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.detalhe dt {
+  color: var(--suave);
+  font-size: 0.9rem;
+}
+
+.detalhe dd {
+  margin: 0;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.nao-encontrado {
+  font-size: 1.05rem;
+}

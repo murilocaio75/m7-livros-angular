@@ -1,0 +1,36 @@
+<main class="container">
+  <header class="cabecalho">
+    <h1>Acervo de livros</h1>
+    <button type="button" class="botao-criar" (click)="alternarFormulario()">
+      {{ mostrarFormulario() ? "Cancelar" : "Cadastrar livro" }}
+    </button>
+  </header>
+
+  @if (mostrarFormulario()) {
+    <app-formulario-livro (criar)="adicionarLivro($event)" />
+  }
+
+  <app-filtro-livros
+    [pesquisa]="pesquisa()"
+    [categoria]="filtroCategoria()"
+    [status]="filtroStatus()"
+    [categorias]="categorias()"
+    (pesquisaChange)="atualizarPesquisa($event)"
+    (categoriaChange)="atualizarCategoria($event)"
+    (statusChange)="atualizarStatus($event)"
+  />
+
+  @if (!carregando() && !erro()) {
+    <p class="contador">
+      Exibindo {{ totalVisivel() }} de {{ livros().length }} livros
+    </p>
+  }
+
+  <app-lista-livros
+    [livros]="livrosFiltrados()"
+    [carregando]="carregando()"
+    [erro]="erro()"
+    (alternarStatus)="alternarStatus($event)"
+    (excluir)="excluirLivro($event)"
+  />
+</main>

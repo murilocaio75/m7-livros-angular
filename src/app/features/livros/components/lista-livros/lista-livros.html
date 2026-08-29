@@ -1,0 +1,20 @@
+@if (carregando()) {
+  <p class="aviso">Carregando livros...</p>
+}
+@else if (erro()) {
+  <p class="erro">{{ erro() }}</p>
+}
+@else if (livros().length === 0) {
+  <p class="aviso">Nenhum livro encontrado.</p>
+}
+@else {
+  <div class="grade">
+    @for (livro of livros(); track livro.id) {
+      <app-livro-card
+        [livro]="livro"
+        (alternarStatus)="alternarStatus.emit($event)"
+        (excluir)="excluir.emit($event)"
+      />
+    }
+  </div>
+}

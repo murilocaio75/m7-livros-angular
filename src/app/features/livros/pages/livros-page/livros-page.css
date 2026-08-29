@@ -1,0 +1,13 @@
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contador {
+  margin: 8px 0 12px;
+  font-size: 0.85rem;
+  color: var(--suave);
+}

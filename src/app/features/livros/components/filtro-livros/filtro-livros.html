@@ -1,0 +1,21 @@
+<section class="filtros">
+  <input
+    type="search"
+    placeholder="Pesquisar por título ou autor"
+    [value]="pesquisa()"
+    (input)="alterarPesquisa($event)"
+  />
+
+  <select [value]="categoria()" (change)="alterarCategoria($event)">
+    <option value="todas">Todas as categorias</option>
+    @for (item of categorias(); track item) {
+      <option [value]="item">{{ item }}</option>
+    }
+  </select>
+
+  <select [value]="status()" (change)="alterarStatus($event)">
+    <option value="todas">Todos os estados</option>
+    <option value="disponivel">Disponível</option>
+    <option value="emprestado">Emprestado</option>
+  </select>
+</section>

@@ -1,0 +1,43 @@
+<main class="container detalhe">
+  <a class="voltar" routerLink="/livros">&larr; Voltar para o acervo</a>
+
+  @if (carregando()) {
+    <p class="aviso">Carregando...</p>
+  }
+  @else if (erro()) {
+    <p class="erro">{{ erro() }}</p>
+  }
+  @else if (livro(); as item) {
+    <h1>{{ item.titulo }}</h1>
+
+    <dl>
+      <dt>Autor</dt>
+      <dd>{{ item.autor }}</dd>
+
+      <dt>Categoria</dt>
+      <dd>{{ item.categoria }}</dd>
+
+      <dt>Ano</dt>
+      <dd>{{ item.ano }}</dd>
+
+      <dt>Estado</dt>
+      <dd>{{ rotulos[item.status] }}</dd>
+
+      <dt>Descrição</dt>
+      <dd>{{ item.descricao || "Sem descrição cadastrada." }}</dd>
+
+      <dt>Identificador</dt>
+      <dd>{{ item.id }}</dd>
+    </dl>
+
+    <div class="acoes">
+      <button type="button" (click)="alternarStatus()">
+        {{ item.status === "disponivel" ? "Emprestar" : "Devolver" }}
+      </button>
+      <button type="button" class="perigo" (click)="excluir()">Excluir</button>
+    </div>
+  }
+  @else {
+    <p class="nao-encontrado">Livro não encontrado.</p>
+  }
+</main>

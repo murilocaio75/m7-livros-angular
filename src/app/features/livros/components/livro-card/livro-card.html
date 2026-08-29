@@ -1,0 +1,29 @@
+<article class="livro-card" [class.emprestado]="livro().status === 'emprestado'">
+  <header>
+    <h3>{{ livro().titulo }}</h3>
+    <span class="etiqueta-status">{{ rotuloStatus() }}</span>
+  </header>
+
+  <p class="autor">{{ livro().autor }}</p>
+
+  <p class="meta">
+    <span class="categoria">{{ livro().categoria }}</span>
+    <span class="ano">{{ livro().ano }}</span>
+  </p>
+
+  <div class="acoes">
+    <a [routerLink]="['/livros', livro().id]">Ver detalhes</a>
+
+    <button type="button" (click)="alternarStatus.emit(livro())">
+      {{ rotuloAcao() }}
+    </button>
+
+    <button
+      type="button"
+      class="perigo"
+      (click)="excluir.emit(livro())"
+    >
+      Excluir
+    </button>
+  </div>
+</article>

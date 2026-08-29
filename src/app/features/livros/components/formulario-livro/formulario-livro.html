@@ -1,0 +1,59 @@
+<form class="formulario-livro" (submit)="enviar($event)">
+  <h2>Cadastrar livro</h2>
+
+  <label>
+    Título *
+    <input type="text" [value]="titulo()" (input)="alterarTitulo($event)" />
+  </label>
+
+  <label>
+    Autor *
+    <input type="text" [value]="autor()" (input)="alterarAutor($event)" />
+  </label>
+
+  <label>
+    Categoria *
+    <input
+      type="text"
+      list="categorias-sugeridas"
+      [value]="categoria()"
+      (input)="alterarCategoria($event)"
+    />
+  </label>
+
+  <datalist id="categorias-sugeridas">
+    <option value="Tecnologia"></option>
+    <option value="Ficção"></option>
+    <option value="História"></option>
+    <option value="Literatura"></option>
+    <option value="Estratégia"></option>
+  </datalist>
+
+  <label>
+    Ano *
+    <input type="number" [value]="ano()" (input)="alterarAno($event)" />
+  </label>
+
+  @if (!anoValido()) {
+    <p class="erro-campo">Informe um ano válido.</p>
+  }
+
+  <label>
+    Estado
+    <select [value]="status()" (change)="alterarStatus($event)">
+      <option value="disponivel">Disponível</option>
+      <option value="emprestado">Emprestado</option>
+    </select>
+  </label>
+
+  <label>
+    Descrição
+    <textarea
+      rows="3"
+      [value]="descricao()"
+      (input)="alterarDescricao($event)"
+    ></textarea>
+  </label>
+
+  <button type="submit" [disabled]="!formValido()">Salvar livro</button>
+</form>

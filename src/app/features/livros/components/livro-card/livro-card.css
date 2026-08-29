@@ -1,0 +1,56 @@
+.livro-card {
+  background: #fff;
+  border: 1px solid var(--linha);
+  border-left: 4px solid var(--ok);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* A cor da borda repete a informação da etiqueta. Quem varre a lista com o
+   olho vê o estado antes de ler. */
+.livro-card.emprestado {
+  border-left-color: #c58a00;
+}
+
+.livro-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.livro-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.etiqueta-status {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--suave);
+  white-space: nowrap;
+}
+
+.autor {
+  margin: 0;
+  color: var(--suave);
+}
+
+.meta {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--suave);
+}
+
+.acoes {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
