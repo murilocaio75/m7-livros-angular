@@ -2,10 +2,9 @@
 // `ng build` usa (defaultConfiguration: production) e também o `ng test`.
 // Durante o `ng serve` ele é SUBSTITUÍDO por environment.development.ts.
 //
-// ⚠ ETAPA 15: trocar por https://<nome-do-servico>.onrender.com/api antes de
-// publicar. Se este valor continuar apontando para localhost, a aplicação
-// publicada carrega em branco — o navegador do avaliador não tem uma API na
-// porta 3000 dele.
+// Etapa 15 concluída: aponta para o Web Service publicado no Render. Enquanto
+// esta linha dizia localhost, a aplicação publicada carregaria em branco — o
+// navegador de quem abre a página não tem uma API na porta 3000 dele.
 export const environment = {
-  apiUrl: "http://localhost:3000/api"
+  apiUrl: "https://m7-a8-livros-api-sfdn.onrender.com/api"
 };
